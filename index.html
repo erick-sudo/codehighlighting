@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Highlighting</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./prism.css">
+
+</head>
+<body>
+    <div class="code">
+        <pre id="pre" class="highlighting" aria-hidden="true">
+<code class="language-css" class="highlighting-content">
+</code>
+        </pre>
+        <textarea class="editing" onkeydown="checkTab(this, event)" oninput="updateCode(this); syncScroll(this)" onscroll="syncScroll(this)" spellcheck="false">function updateCode(text) {
+  let code = document.querySelector("#highlighting-content")
+                    
+  //Update code
+  code.innerText = text
+                    
+  //systeax Highlighting
+  hljs.highlightAll();
+}</textarea>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".highlighting-content").forEach(element => {
+            Prism.highlightElement(element);
+          })
+
+          document.querySelectorAll("textarea").forEach(element => {
+            element.previousElementSibling.firstChild.innerHTML = element.value
+          })
+        })
+     </script>
+</body>
+<script src="./prism.js"></script>
+<script src="./index.js"></script>
+</html>

@@ -1,0 +1,70 @@
+html{
+    background-color: rgb(7, 8, 8);
+}
+*{
+    box-sizing: border-box;
+}
+
+.code {
+    position: relative;
+
+}
+pre, code{
+    margin: 0;
+}
+
+.editing::-webkit-scrollbar, .highlighting::-webkit-scrollbar {
+    background-color: transparent;
+    height: 5px;
+    width: 5px;
+}
+.editing::-webkit-scrollbar-thumb, .highlighting::-webkit-scrollbar-thumb {
+    background-color: rgb(63, 50, 50);
+    border-radius: 20px;
+}
+
+.editing::-webkit-scrollbar-corner, .highlighting::-webkit-scrollbar-corner  {
+    background-color: transparent;
+}
+
+.editing, .highlighting {
+    /* border: solid 1px rgb(61, 47, 47); */
+    
+    margin: 0 !important;
+    padding: 5px !important;
+    
+    height: 500px;
+    width: 100%;
+    border-radius: 5px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.editing, .highlighting, .highlighting * {
+    font-size: 12px !important;
+    font-family: monospace !important;
+    line-height: 20px !important;
+
+    /* tab-size: 4; */
+}
+
+.highlighting {
+    background-color: transparent !important;
+    z-index: 0;
+}
+.editing{
+    z-index: 1;
+    outline: none !important;
+    /* color: rgb(247, 139, 139); */
+    background: transparent;
+    color: transparent;
+
+    resize: none;
+
+    caret-color: aqua;
+}
